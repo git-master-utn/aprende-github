@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#1b2540"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="320" rx="24" fill="url(#bg)"/>
+  <g fill="none" stroke-width="8" stroke-linecap="round">
+    <path d="M720 230H1130" stroke="#58a6ff"/>
+    <path d="M800 230C840 230 840 150 880 150H1000C1040 150 1040 230 1080 230" stroke="#3fb950"/>
+    <path d="M900 150C930 150 930 85 960 85H1060" stroke="#a371f7"/>
+  </g>
+  <g stroke="#0d1117" stroke-width="5">
+    <circle cx="730" cy="230" r="15" fill="#58a6ff"/>
+    <circle cx="800" cy="230" r="15" fill="#58a6ff"/>
+    <circle cx="940" cy="230" r="15" fill="#58a6ff"/>
+    <circle cx="1080" cy="230" r="15" fill="#58a6ff"/>
+    <circle cx="1130" cy="230" r="15" fill="#58a6ff"/>
+    <circle cx="880" cy="150" r="15" fill="#3fb950"/>
+    <circle cx="1000" cy="150" r="15" fill="#3fb950"/>
+    <circle cx="960" cy="85" r="15" fill="#a371f7"/>
+    <circle cx="1060" cy="85" r="15" fill="#a371f7"/>
+  </g>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <text x="70" y="135" font-size="62" font-weight="700" fill="#ffffff">Aprende Git y GitHub</text>
+    <text x="72" y="190" font-size="28" fill="#9fb3c8">Curso práctico desde cero, paso a paso</text>
+    <rect x="70" y="222" width="250" height="44" rx="22" fill="#3fb950"/>
+    <text x="195" y="252" font-size="21" font-weight="700" fill="#0d1117" text-anchor="middle">8 módulos + reto final</text>
+  </g>
+</svg>
