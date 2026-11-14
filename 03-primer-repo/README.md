@@ -1,4 +1,4 @@
-<img src="../img/03.svg" width="90" align="right" alt="">
+Mi primera modificación desde la rama principal main
 
 # 03 · Tu primer repositorio
 
