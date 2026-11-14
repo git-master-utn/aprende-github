@@ -124,3 +124,7 @@ git push
 ---
 
 [⬅️ Anterior: 02 · Instalación](../02-instalacion/) · [🏠 Inicio](../README.md) · [Siguiente: 04 · Ramas ➡️](../04-ramas/)
+
+Nombre: Yaretzi Paola Escobar Suarez 
+Carrera: Ingeniería en Entornos Virtuales y Negocios Digitales
+
