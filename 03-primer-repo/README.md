@@ -1,5 +1,7 @@
 Mi primera modificación desde la rama principal main
 
+Mi primera modificación desde la rama rama-a
+
 # 03 · Tu primer repositorio
 
 **Objetivo:** crear un repo, guardar cambios y subirlos a GitHub.
