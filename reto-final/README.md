@@ -57,6 +57,13 @@ En el título escribe: `Reto final: Tu Nombre`.
 > `git merge main`. Resuelve el conflicto como en el
 > [módulo 04](../04-ramas/) y vuelve a hacer `git push`.
 
+git clone git@github.com:valdezpaulina228-boop/aprende-github.git
+cd aprende-github
+git switch -c pulina-valdez
+git add reto-final/alumnos.md
+git commit -m "Agrego a Tu Nombre a la lista de alumnos"
+git push -u origin paulina-valdez
+
 ## Lo que demuestras con este reto
 
 - [ ] Fork y clone
