@@ -55,7 +55,7 @@ Los comandos que **cruzan** de un lado al otro son solo cuatro:
 **A) El repo ya existe en GitHub** (lo más común):
 
 ```bash
-git clone git@github.com:TU-USUARIO/NOMBRE-DEL-REPO.git
+git clone https://github.com/TU-USUARIO/NOMBRE-DEL-REPO.git
 ```
 
 `clone` ya deja conectado el remoto `origin`; no hay que configurarlo.
@@ -67,7 +67,7 @@ git init
 git add .
 git commit -m "Primer commit"
 git branch -M main
-git remote add origin git@github.com:TU-USUARIO/NOMBRE-DEL-REPO.git
+git remote add origin https://github.com/TU-USUARIO/NOMBRE-DEL-REPO.git
 git push -u origin main
 ```
 
@@ -140,18 +140,61 @@ Significa que en GitHub hay commits que tu computadora todavía no tiene (alguie
 subió algo, o editaste un archivo desde la página web). Se arregla así:
 
 ```bash
-git pull
+git pull --no-edit
 git push
 ```
 
+> [!TIP]
+> **¿Se abrió una pantalla rara llena de `~` y no puedes escribir?** Es **Vim**,
+> el editor que Git abre para el mensaje de la unión. Escribe `:wq` y presiona
+> **Enter** para guardar y salir. Para que no se abra, usa siempre `git pull --no-edit`.
+
 ## ✏️ Ejercicio
 
-1. En **GitHub**, abre `mi-primer-repo`, edita el README con el ícono del lápiz
-   y guarda con **Commit changes**.
-2. En tu **computadora**, sin hacer pull, edita otro archivo y haz commit.
-3. Ejecuta `git fetch` y `git status`. ¿Qué te dice?
-4. Intenta `git push` y observa el error.
-5. Arréglalo con `git pull` y vuelve a subir.
+Vas a provocar que GitHub y tu computadora tengan cambios distintos, y luego unirlos.
+
+**1. 🌐 En GitHub, cambia un archivo desde la página:**
+
+1. Abre tu `mi-primer-repo` → clic en `notas.txt` → ícono del **lápiz** ✏️ (arriba a la derecha del archivo).
+2. Agrega una línea, por ejemplo `Línea escrita desde GitHub`.
+3. Clic en el botón verde **Commit changes** (arriba a la derecha).
+4. En la ventana que aparece, deja todo igual y da clic otra vez en **Commit changes**.
+
+**2. 💻 En tu computadora, cambia OTRO archivo sin hacer pull:**
+
+```bash
+cd ~/Downloads/mi-primer-repo
+echo "Línea escrita desde mi computadora" >> README.md
+git commit -am "Cambio desde mi computadora"
+```
+
+**3. Mira qué pasa:**
+
+```bash
+git fetch
+git status
+```
+
+✔️ Debe decir `have diverged`: los dos lados tienen commits distintos.
+
+**4. Intenta subir:**
+
+```bash
+git push
+```
+
+✔️ Debe salir el error `! [rejected] ... (fetch first)`. Es lo esperado.
+
+**5. Une los cambios y sube:**
+
+```bash
+git pull --no-edit
+git push
+```
+
+✔️ **Resultado esperado:** `git log --oneline` muestra arriba un commit
+`Merge branch 'main' of https://github.com/...`, y 🌐 en GitHub, `notas.txt`
+tiene la línea de GitHub y `README.md` la de tu computadora.
 
 ## 🔎 Evidencia para el reto final
 

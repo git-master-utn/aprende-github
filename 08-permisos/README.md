@@ -138,15 +138,57 @@ vencimiento. Trátalo como una contraseña: no lo compartas ni lo subas a un rep
 
 ## ✏️ Ejercicio
 
-Trabaja con un compañero:
+Trabaja con un compañero. **Tú** eres el dueño de `mi-primer-repo`; cada quien
+usa **su propia cuenta**.
 
-1. Invítalo como **colaborador** a tu `mi-primer-repo`.
-2. Que acepte la invitación, clone el repo y haga un `git push` directo.
-   Comprueba que ahora sí puede.
-3. **Protege la rama `main`** para exigir Pull Request.
-4. Que tu compañero intente otro push directo a `main` y vea el rechazo.
-5. Que lo suba en una rama y abra un Pull Request. Acéptalo tú.
-6. Al terminar, **quítale el acceso**, pero **deja activa la protección** de `main`.
+**1. 🌐 Tú lo invitas:** en tu `mi-primer-repo` → **Settings** → **Collaborators**
+→ **Add people** → escribe su usuario → **Add to repository**.
+
+**2. 🌐 Tu compañero acepta:** le llega un correo; da clic en **View invitation**
+→ **Accept invitation**.
+
+**3. 💻 Tu compañero sube un cambio directo** (en **su** computadora; cambia `TU-USUARIO` por el tuyo):
+
+```bash
+cd ~/Downloads
+git clone https://github.com/TU-USUARIO/mi-primer-repo.git repo-de-mi-companero
+cd repo-de-mi-companero
+echo "Hola, soy tu colaborador" > colaborador.txt
+git add colaborador.txt
+git commit -m "Agrego un archivo como colaborador"
+git push
+```
+
+✔️ El push funciona porque ya es colaborador.
+
+**4. 🌐 Tú proteges `main`:** sigue los pasos de la sección 5 de este módulo
+(**sin** marcar *Require approvals*).
+
+**5. 💻 Tu compañero intenta otro push directo:**
+
+```bash
+echo "Segundo intento" >> colaborador.txt
+git commit -am "Intento subir directo a main"
+git push
+```
+
+✔️ Debe salir un error que menciona `protected branch` o `repository rule violations`.
+
+**6. 💻 Tu compañero lo sube en una rama y abre un Pull Request:**
+
+```bash
+git switch -c cambio-colaborador
+git push -u origin cambio-colaborador
+```
+
+🌐 En tu repo aparece el aviso amarillo **Compare & pull request**: tu compañero
+da clic → **Create pull request**. Luego **tú** lo abres → **Merge pull request** →
+**Confirm merge**.
+
+**7. 🌐 Al terminar:** **Settings** → **Collaborators** → **Remove** junto a tu
+compañero. **Deja activa** la protección de `main`.
+
+✔️ **Resultado esperado:** en **Settings → Branches** aparece una regla para `main`.
 
 ## 🔎 Evidencia para el reto final
 

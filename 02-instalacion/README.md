@@ -68,7 +68,24 @@ Revisa que se guardaron:
 git config --global --list
 ```
 
-## 4. Conectar tu computadora con GitHub (SSH)
+## 4. Conectar tu computadora con GitHub
+
+**Forma recomendada: HTTPS. Ahorita no tienes que hacer nada.**
+
+La primera vez que hagas `git push` (en el módulo 03), Git abre una ventana para
+iniciar sesión:
+
+1. Elige **Sign in with your browser**.
+2. Se abre tu navegador: entra con **tu** cuenta de GitHub y da clic en **Authorize**.
+3. Regresa a Git Bash: el `git push` termina solo.
+
+Git guarda esa sesión y ya no te la vuelve a pedir en esa computadora.
+
+> [!NOTE]
+> En todo el curso las direcciones de los repos empiezan con `https://github.com/...`.
+
+<details>
+<summary><b>Opción avanzada: conectar con llave SSH</b> (solo si tu profesor te lo pide)</summary>
 
 GitHub **no acepta tu contraseña** al subir código desde la terminal. La forma
 más cómoda de identificarte es con una **llave SSH**: la configuras una vez y listo.
@@ -111,6 +128,11 @@ bien verás un mensaje que empieza con `Hi tu-usuario!`.
 > *Personal Access Token*: en GitHub ve a **Settings → Developer settings →
 > Personal access tokens** y usa ese token en lugar de la contraseña.
 
+Si usas SSH, cambia en los comandos del curso las direcciones
+`https://github.com/USUARIO/REPO.git` por `git@github.com:USUARIO/REPO.git`.
+
+</details>
+
 ## 🖥️ Si usas una computadora compartida (laboratorio)
 
 En el laboratorio varias personas usan la misma compu. Si no tienes cuidado,
@@ -138,13 +160,23 @@ vas a subir cambios **con la cuenta de otra persona** y el reto final no te va a
 
 ## ✏️ Ejercicio
 
-Ejecuta estos tres comandos y verifica que los tres responden bien:
+💻 En Git Bash, escribe uno por uno estos comandos y presiona **Enter** después de cada uno:
 
 ```bash
 git --version
 git config --global user.name
-ssh -T git@github.com
+git config --global user.email
 ```
+
+✔️ **Resultado esperado:**
+
+| Comando | Debe responder |
+|---|---|
+| `git --version` | Algo como `git version 2.47.0` |
+| `git config --global user.name` | Tu nombre |
+| `git config --global user.email` | **El correo de tu cuenta de GitHub** |
+
+Si alguno no responde nada, repite el paso 3.
 
 ## 🔎 Evidencia para el reto final
 
@@ -161,7 +193,7 @@ ssh -T git@github.com
 - [ ] `git --version` muestra un número de versión
 - [ ] Tengo cuenta en GitHub con mi correo confirmado
 - [ ] Configuré mi nombre y mi correo en Git
-- [ ] `ssh -T git@github.com` me saluda con mi usuario
+- [ ] Sé que la primera vez que haga `git push` me va a pedir iniciar sesión en el navegador
 
 ---
 

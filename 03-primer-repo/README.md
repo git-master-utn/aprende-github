@@ -27,13 +27,26 @@ flowchart LR
 
 ## Paso 1 · Crea la carpeta y el repo
 
+💻 Abre **Git Bash** (menú Inicio → escribe *Git Bash* → Enter) y escribe estos
+comandos uno por uno, presionando **Enter** después de cada uno:
+
 ```bash
+cd ~/Downloads
 mkdir mi-primer-repo
 cd mi-primer-repo
 git init
 ```
 
 `git init` convierte la carpeta en un repositorio (crea una carpeta oculta `.git`).
+
+✔️ Ahora la línea donde escribes termina en `~/Downloads/mi-primer-repo (master)`
+o `(main)`. Ese texto entre paréntesis significa que **estás dentro de un repo**.
+Tu carpeta también se ve en el Explorador de Windows, en **Descargas**.
+
+> [!IMPORTANT]
+> Desde aquí hasta el módulo 08, **todos** los comandos se escriben dentro de
+> esta carpeta. Si cierras Git Bash, al abrirlo de nuevo escribe primero
+> `cd ~/Downloads/mi-primer-repo`.
 
 ## Paso 2 · Crea un archivo
 
@@ -83,6 +96,8 @@ git log --oneline
 
 ## Paso 7 · Crea el repo en GitHub
 
+🌐 Ahora en el navegador:
+
 1. En GitHub, clic en el **+** de arriba a la derecha → **New repository**.
 2. Nombre: **exactamente** `mi-primer-repo` (con ese nombre lo revisa el reto final).
 3. Déjalo **Public** y **no marques** ninguna casilla (ni README, ni .gitignore, ni licencia).
@@ -90,15 +105,19 @@ git log --oneline
 
 ## Paso 8 · Conecta y sube
 
-Cambia `TU-USUARIO` por tu nombre de usuario de GitHub:
+💻 De regreso en Git Bash. Cambia `TU-USUARIO` por tu nombre de usuario de GitHub:
 
 ```bash
-git remote add origin git@github.com:TU-USUARIO/mi-primer-repo.git
+git remote add origin https://github.com/TU-USUARIO/mi-primer-repo.git
 git branch -M main
 git push -u origin main
 ```
 
-Recarga la página de tu repo en GitHub: ahí está tu archivo. 🎉
+La primera vez se abre una ventana para iniciar sesión: elige **Sign in with
+your browser**, entra con **tu** cuenta y da clic en **Authorize**.
+
+✔️ Git Bash termina con una línea parecida a `main -> main`. 🌐 Recarga la página
+de tu repo en GitHub: ahí está tu archivo. 🎉
 
 A partir de ahora, el ciclo de todos los días es este:
 
@@ -110,10 +129,38 @@ git push
 
 ## ✏️ Ejercicio
 
-1. Edita `README.md` y agrega una línea con tu nombre y tu carrera.
-2. Crea un archivo nuevo llamado `notas.txt` con cualquier texto.
-3. Haz **dos commits separados**, uno por cada cambio, con mensajes claros.
-4. Súbelos con `git push` y comprueba en GitHub que aparecen los 3 commits.
+Todo esto se hace 💻 en Git Bash, dentro de `~/Downloads/mi-primer-repo`.
+
+**1. Edita el README.** Ábrelo con el Bloc de notas:
+
+```bash
+notepad README.md
+```
+
+📝 Agrega una línea nueva con tu nombre y tu carrera, guarda con **Ctrl + S** y
+cierra el Bloc de notas. Luego guarda la foto:
+
+```bash
+git add README.md
+git commit -m "Agrego mi nombre y mi carrera al README"
+```
+
+**2. Crea un archivo nuevo** llamado `notas.txt`:
+
+```bash
+echo "Estas son mis notas del curso" > notas.txt
+git add notas.txt
+git commit -m "Agrego mis notas"
+```
+
+**3. Súbelo todo:**
+
+```bash
+git push
+```
+
+✔️ **Resultado esperado:** `git log --oneline` muestra **3 commits**, y 🌐 en la
+página de tu repo aparecen `README.md` y `notas.txt` y dice **3 Commits**.
 
 ## 🔎 Evidencia para el reto final
 

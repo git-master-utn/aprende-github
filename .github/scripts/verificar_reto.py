@@ -129,8 +129,10 @@ def revisar(usuario):
 
     # 04 · Merge local (ejercicio del conflicto)
     merges = [c for c in commits if len(c.get("parents", [])) >= 2]
+    def de_pull(c):
+        return re.match(r"Merge (remote-tracking )?branch '.+' of ", primera_linea(c)) is not None
     locales = [c for c in merges
-               if primera_linea(c).startswith("Merge branch") and " of " not in primera_linea(c)]
+               if not primera_linea(c).startswith("Merge pull request") and not de_pull(c)]
     res.append(("04", "Unión de ramas hecha en tu computadora (ejercicio del conflicto)",
                 bool(locales), primera_linea(locales[0]) if locales else ""))
 
@@ -286,8 +288,9 @@ def verificar_pr(repo, numero, autor, resumen_en_log=True):
                           "el instructor lo hará a mano.")
     else:
         partes.append("❌ **Todavía falta algo.** Revisa lo que está en rojo, complétalo y "
-                      "después **edita la descripción de este Pull Request** (basta con agregar "
-                      "un espacio) para que se vuelva a revisar.")
+                      "después **edita la descripción de este Pull Request** para que se vuelva a revisar: "
+                      "en el primer recuadro (el tuyo) da clic en **⋯** → **Edit**, agrega un espacio "
+                      "al final y da clic en **Update comment**.")
     if problemas:
         partes += ["", "### Tu Pull Request", ""] + [f"- ❌ {p}" for p in problemas]
 

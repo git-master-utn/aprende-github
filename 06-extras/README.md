@@ -89,10 +89,44 @@ de presentación.
 
 ## ✏️ Ejercicio
 
-1. Agrega un `.gitignore` a `mi-primer-repo` que ignore los archivos `.log`.
-2. Crea un archivo `prueba.log` y comprueba con `git status` que Git no lo ve.
-3. Abre un Issue en tu propio repo con una mejora pendiente.
-4. Mejora tu README usando títulos, negritas y una lista.
+**1. 💻 Crea el `.gitignore`** (en Git Bash, dentro de `~/Downloads/mi-primer-repo`):
+
+```bash
+echo "*.log" > .gitignore
+git add .gitignore
+git commit -m "Agrego .gitignore para ignorar archivos .log"
+```
+
+**2. Comprueba que funciona:**
+
+```bash
+echo "esto no se debe subir" > prueba.log
+git status
+```
+
+✔️ En `git status` **no** debe aparecer `prueba.log`: Git lo está ignorando.
+
+**3. Mejora tu README con Markdown:**
+
+```bash
+notepad README.md
+```
+
+📝 Agrega un título `## Sobre mí`, una palabra en `**negritas**` y una lista con
+tres guiones `-`. Guarda (**Ctrl + S**), cierra y súbelo todo:
+
+```bash
+git add README.md
+git commit -m "Mejoro mi README con Markdown"
+git push
+```
+
+**4. 🌐 Abre un Issue** en la página de tu `mi-primer-repo`: pestaña **Issues** →
+botón verde **New issue** → escribe un título como *"Agregar una foto al README"*
+→ botón verde **Create** (o *Submit new issue*).
+
+✔️ **Resultado esperado:** en GitHub, tu repo tiene el archivo `.gitignore`, el
+README se ve con título y lista, y en la pestaña **Issues** aparece **1 Open**.
 
 ## 🔎 Evidencia para el reto final
 

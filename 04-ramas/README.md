@@ -28,7 +28,13 @@ Si el experimento sale mal, borras la rama y `main` ni se enteró.
 
 ## Comandos de ramas
 
-Trabaja dentro de tu carpeta `mi-primer-repo` del módulo anterior.
+💻 Todo este módulo es en Git Bash, dentro de tu carpeta del módulo anterior:
+
+```bash
+cd ~/Downloads/mi-primer-repo
+```
+
+Lee esta parte para entender los comandos; el ejercicio de abajo es el que cuenta para el reto final.
 
 **Ver las ramas** (la que tiene `*` es donde estás parado):
 
@@ -50,7 +56,7 @@ git add .
 git commit -m "Agrego una línea desde la rama nueva-seccion"
 ```
 
-**Regresa a main** y abre `README.md`: la línea nueva no está, porque vive en la otra rama.
+**Regresa a main** y revisa el README con `cat README.md`: la línea nueva no está, porque vive en la otra rama.
 
 ```bash
 git switch main
@@ -97,14 +103,19 @@ Esta es la versión que viene de la otra rama
 
 Para resolverlo:
 
-1. Decide qué texto se queda (uno, el otro o una mezcla de los dos).
-2. Borra las tres líneas de marcas (`<<<<<<<`, `=======` y `>>>>>>>`).
-3. Guarda el archivo y termina la unión:
+1. Abre el archivo con el conflicto: `notepad README.md`.
+2. 📝 Decide qué texto se queda (uno, el otro o una mezcla de los dos).
+3. Borra las tres líneas de marcas (`<<<<<<<`, `=======` y `>>>>>>>`).
+4. Guarda con **Ctrl + S** y cierra el Bloc de notas.
+5. 💻 Termina la unión:
 
 ```bash
-git add .
-git commit -m "Resuelvo el conflicto del README"
+git add README.md
+git commit --no-edit
 ```
+
+`--no-edit` guarda la unión con el mensaje automático `Merge branch 'rama-a'`,
+y ese commit es justo la evidencia del reto final.
 
 > [!TIP]
 > Si te arrepientes a medio conflicto, `git merge --abort` deja todo como
@@ -112,21 +123,66 @@ git commit -m "Resuelvo el conflicto del README"
 
 ## ✏️ Ejercicio: provoca un conflicto a propósito
 
-1. Crea una rama y cambia **la primera línea** del README:
-   ```bash
-   git switch -c rama-a
-   ```
-   Edita la primera línea, guarda y haz commit.
-2. Regresa a main y cambia **esa misma línea** por otro texto distinto:
-   ```bash
-   git switch main
-   ```
-   Edita, guarda y haz commit.
-3. Intenta unirlas:
-   ```bash
-   git merge rama-a
-   ```
-4. Resuelve el conflicto siguiendo los pasos de arriba.
+💻 En Git Bash, dentro de `~/Downloads/mi-primer-repo`. Sigue los pasos en orden.
+
+**1. En una rama nueva, cambia la primera línea del README:**
+
+```bash
+git switch main
+git switch -c rama-a
+notepad README.md
+```
+
+📝 Cambia **la primera línea** por `# Versión de la rama A`, guarda (**Ctrl + S**) y cierra.
+
+```bash
+git commit -am "Cambio el título en rama-a"
+```
+
+**2. Regresa a main y cambia esa misma línea por otro texto:**
+
+```bash
+git switch main
+notepad README.md
+```
+
+📝 Cambia **la primera línea** por `# Versión de main`, guarda y cierra.
+
+```bash
+git commit -am "Cambio el título en main"
+```
+
+**3. Une las ramas:**
+
+```bash
+git merge rama-a
+```
+
+✔️ Debe salir `CONFLICT (content): Merge conflict in README.md`. ¡Eso es lo que
+buscábamos! La línea donde escribes ahora termina en `(main|MERGING)`.
+
+**4. Resuelve el conflicto:**
+
+```bash
+notepad README.md
+```
+
+📝 Deja la primera línea como `# Mi primer repositorio`, borra las tres líneas de
+marcas (`<<<<<<<`, `=======`, `>>>>>>>`), guarda y cierra.
+
+```bash
+git add README.md
+git commit --no-edit
+```
+
+**5. Súbelo:**
+
+```bash
+git push
+```
+
+✔️ **Resultado esperado:** `git log --oneline` muestra arriba un commit
+`Merge branch 'rama-a'`, y la línea donde escribes ya no dice `MERGING`.
 
 ## 🔎 Evidencia para el reto final
 

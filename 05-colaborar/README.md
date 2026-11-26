@@ -40,11 +40,11 @@ la derecha) → **Create fork**. Ahora tienes una copia en `github.com/TU-USUARI
 
 ## Paso 2 · Clona tu fork
 
-En la página de **tu fork**, clic en el botón verde **Code** → pestaña **SSH** →
-copia la dirección. Luego:
+En la página de **tu fork**, clic en el botón verde **Code** → pestaña **HTTPS** →
+copia la dirección. Luego, 💻 en Git Bash:
 
 ```bash
-git clone git@github.com:TU-USUARIO/NOMBRE-DEL-REPO.git
+git clone https://github.com/TU-USUARIO/NOMBRE-DEL-REPO.git
 cd NOMBRE-DEL-REPO
 ```
 

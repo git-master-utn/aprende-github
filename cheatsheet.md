@@ -11,7 +11,7 @@ Todos los comandos del curso en una sola página.
 | `git config --global pull.rebase false` | Hace que `git pull` una los cambios con un merge |
 | `git config --global --list` | Muestra tu configuración |
 | `ssh-keygen -t ed25519 -C "correo@ejemplo.com"` | Crea tu llave SSH |
-| `ssh -T git@github.com` | Prueba la conexión con GitHub |
+| `ssh -T git@github.com` | (Opcional, solo si usas SSH) Prueba la conexión |
 
 ## Empezar un proyecto
 
@@ -80,6 +80,21 @@ Fork  →  git clone  →  git switch -c mi-rama  →  cambios
       →  git add .  →  git commit -m "..."  →  git push -u origin mi-rama
       →  Pull Request
 ```
+
+## 🧯 Problemas comunes en Git Bash
+
+| Ves esto | Qué pasó | Solución |
+|---|---|---|
+| `command not found` con símbolos raros, como `$'\302\226cd'` | Copiaste el comando de WhatsApp, un PDF o una página y se pegó un carácter invisible | Borra la línea y **escribe el comando a mano** |
+| `No such file or directory` al hacer `cd` | La ruta está mal escrita o usaste `\` | En Git Bash las rutas van con `/`: `cd ~/Downloads/mi-carpeta`. Usa `ls` para ver qué carpetas hay |
+| `fatal: not a git repository` | No estás dentro de la carpeta del repo | Entra con `cd`. Arriba de donde escribes debe decir `(main)` |
+| Pegar con **Ctrl + V** no hace nada | Git Bash usa otro atajo | Clic derecho → **Paste**, o **Shift + Insert** |
+| Una pantalla llena de `~` donde no puedes escribir | Git abrió el editor **Vim** | Escribe `:wq` y presiona **Enter** |
+| `Permission denied` o error `403` con el nombre de **otra** cuenta | La compu tiene guardada la cuenta de otra persona | `git credential-manager github logout USUARIO-QUE-APARECE` y repite el `git push` |
+| `! [rejected] ... (fetch first)` | GitHub tiene cambios que tu compu no | `git pull --no-edit` y luego `git push` |
+| `nothing to commit, working tree clean` | No hay cambios nuevos, o no guardaste el archivo | Guarda con **Ctrl + S** en el Bloc de notas y revisa con `git status` |
+| `remote origin already exists` | Ya habías conectado el repo con GitHub | No pasa nada: sigue con el siguiente comando |
+| El Bloc de notas guardó `archivo.json.txt` | Windows agregó `.txt` al nombre | Crea los archivos con `notepad nombre.json` desde Git Bash, como dice el curso |
 
 ---
 

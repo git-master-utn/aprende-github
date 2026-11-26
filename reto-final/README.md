@@ -36,45 +36,65 @@ El módulo 01 es teórico y se evalúa en clase.
 ## Pasos
 
 ```mermaid
-flowchart LR
-    A["Fork de<br/>este repo"] --> B["Clone a tu<br/>computadora"]
-    B --> C["Rama<br/>nueva"]
-    C --> D["Agrega tu fila en<br/>alumnos.md"]
-    D --> E["Commit<br/>y push"]
-    E --> F["Pull<br/>Request"]
-    F --> G["🤖 Revisión<br/>automática"]
-    G --> H["🎉 Aceptado"]
+flowchart TD
+    A["1️⃣ Fork de este repo"]
+    B["2️⃣ Clone a tu computadora"]
+    C["3️⃣ Rama nueva y tu fila en alumnos.md"]
+    D["4️⃣ Commit, push y Pull Request"]
+    E["5️⃣ 🤖 El robot revisa tu mi-primer-repo"]
+    F["6️⃣ 🎉 Si sacas 10/10 apareces en la lista"]
+    A --> B --> C --> D --> E --> F
 ```
 
-**1. Haz fork** del repositorio original, [git-master-utn/aprende-github](https://github.com/git-master-utn/aprende-github), con el botón **Fork** de arriba a la derecha.
+> [!TIP]
+> **¿Prefieres hacerlo sin Git Bash?** Abre [`reto-final/alumnos.md`](alumnos.md) en
+> el repo original, da clic en el **lápiz** ✏️ → **Fork this repository**, agrega tu
+> fila al final y da clic en **Commit changes** → **Propose changes** → **Create pull request**.
 
-**2. Clona tu fork** (cambia `TU-USUARIO` por tu usuario de GitHub):
+**1. 🌐 Haz fork** del repositorio original,
+[git-master-utn/aprende-github](https://github.com/git-master-utn/aprende-github):
+botón **Fork** (arriba a la derecha) → **Create fork**.
+
+**2. 💻 Clona tu fork** (cambia `TU-USUARIO` por tu usuario de GitHub):
 
 ```bash
-git clone git@github.com:TU-USUARIO/aprende-github.git
+cd ~/Downloads
+git clone https://github.com/TU-USUARIO/aprende-github.git
 cd aprende-github
 ```
 
-**3. Crea una rama:**
+**3. 💻 Crea una rama y abre la lista:**
 
 ```bash
 git switch -c agrega-tu-nombre
+cd reto-final
+notepad alumnos.md
 ```
 
-**4. Edita** [`reto-final/alumnos.md`](alumnos.md) y agrega **una fila al final
-de la tabla** con tus datos, siguiendo el formato del ejemplo. El usuario de la
-fila debe ser **el tuyo**.
+**4. 📝 Agrega una fila al final de la tabla** con tus datos. El usuario debe ser **el tuyo**:
 
-**5. Guarda y sube tu cambio:**
+```
+| Tu Nombre | [@TU-USUARIO](https://github.com/TU-USUARIO) | IRIC911-M | 2026-11-26 |
+```
+
+Guarda con **Ctrl + S** y cierra el Bloc de notas. No cambies nada más.
+
+**5. 💻 Guarda y sube tu cambio:**
 
 ```bash
+cd ..
 git add reto-final/alumnos.md
 git commit -m "Agrego a Tu Nombre a la lista de alumnos"
 git push -u origin agrega-tu-nombre
 ```
 
-**6. Abre el Pull Request** desde tu fork con el botón **Compare & pull request**.
-En el título escribe `Reto final: Tu Nombre` y llena la lista de la descripción.
+**6. 🌐 Abre el Pull Request:** entra a tu fork en GitHub, da clic en el botón
+verde **Compare & pull request**, escribe en el título `Reto final: Tu Nombre`,
+marca con `x` la lista de la descripción y da clic en **Create pull request**.
+
+✔️ **Resultado esperado:** arriba del PR dice
+*"… wants to merge 1 commit into **git-master-utn:main** …"*, y en uno o dos
+minutos aparece el comentario del robot.
 
 ## 🤖 ¿Qué pasa después?
 
@@ -83,9 +103,7 @@ tabla: ✅ lo que ya cumpliste y ❌ lo que te falta.
 
 - Si todo sale en ✅ (10 / 10), el robot **te agrega solo a la [lista de alumnos](alumnos.md)** y cierra tu Pull Request con un mensaje de felicitación. Que se cierre es normal: tu fila ya quedó en la lista.
 - Si algo sale en ❌, ve al módulo indicado, haz el ejercicio en tu
-  `mi-primer-repo` y después **edita la descripción de tu Pull Request**
-  (basta con agregar un espacio y guardar). El robot vuelve a revisar y
-  actualiza su comentario.
+  `mi-primer-repo` y después **edita la descripción de tu Pull Request** para que el robot vuelva a revisar: en tu PR, en el primer recuadro (el tuyo), da clic en **⋯** → **Edit**, agrega un espacio al final y da clic en **Update comment**. El robot actualiza su comentario.
 
 ## Si el robot marca algo en rojo
 
@@ -113,8 +131,7 @@ hay conflictos o te dice que no puedes aprobar tu propio PR, revisa la tabla
 *Problemas comunes* del [módulo 05](../05-colaborar/). Si la tabla del robot se ve
 desacomodada, desactiva la traducción del navegador.
 
-**Cuando lo arregles,** edita la descripción de tu Pull Request (agrega un espacio
-y guarda) para que el robot vuelva a revisar. **No abras otro PR.**
+**Cuando lo arregles,** **edita la descripción de tu Pull Request** para que el robot vuelva a revisar: en tu PR, en el primer recuadro (el tuyo), da clic en **⋯** → **Edit**, agrega un espacio al final y da clic en **Update comment**. **No abras otro PR.**
 
 > [!NOTE]
 > Si ya revisaste todo y estás seguro de que el robot se equivoca, abre un
