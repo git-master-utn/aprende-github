@@ -134,6 +134,10 @@ git commit -m "Resuelvo el conflicto del README"
 > Haz el ejercicio del conflicto en tu `mi-primer-repo` y súbelo con `git push`.
 > El commit de la unión (`Merge branch 'rama-a'`) es la evidencia.
 
+> [!TIP]
+> **¿Ya quedó bien?** Haz `git push` y comenta `/revisar` en tu Issue de avance.
+> Si todavía no lo tienes, ábrelo aquí: [📈 Revisar mi avance](https://github.com/git-master-utn/aprende-github/issues/new?template=revisar-avance.md&title=Revisar+mi+avance).
+
 ## ✅ Antes de continuar
 
 - [ ] Sé crear una rama y moverme entre ramas

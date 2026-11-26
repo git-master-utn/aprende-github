@@ -74,6 +74,29 @@ flowchart LR
 > [Si el robot marca algo en rojo](reto-final/#si-el-robot-marca-algo-en-rojo),
 > arréglalo y pide otra revisión.
 
+## 📈 Revisa tu avance en cualquier momento
+
+No tienes que esperar al final para saber si vas bien. Cuando termines un
+ejercicio y hagas `git push`:
+
+1. Abre el Issue **[📈 Revisar mi avance](https://github.com/git-master-utn/aprende-github/issues/new?template=revisar-avance.md&title=Revisar+mi+avance)** y da clic en **Create** (o *Submit new issue*).
+2. En un minuto el robot te contesta con tu **calificación hasta ahora**, una
+   tabla de lo que ya está bien ✅ y lo que falta ❌, y **tu siguiente paso**.
+3. Cada vez que termines otro ejercicio, escribe en **ese mismo Issue** un
+   comentario que diga `/revisar` y el robot vuelve a revisar.
+
+```mermaid
+flowchart TD
+    A["1️⃣ Terminas un ejercicio<br/>y haces git push"]
+    B["2️⃣ Comentas /revisar<br/>en tu Issue de avance"]
+    C["3️⃣ 🤖 El robot te dice qué está bien<br/>y cuál es tu siguiente paso"]
+    A --> B --> C
+```
+
+> [!NOTE]
+> Abre **un solo** Issue de avance y úsalo todo el curso. Para entregar, al final
+> haz el [reto final](reto-final/).
+
 ## 🚀 ¿Cómo usar este repo?
 
 1. Sigue los módulos **en orden**; cada uno usa lo del anterior.
@@ -98,7 +121,7 @@ flowchart LR
 <!-- Logo de la UTN: guarda el archivo como img/logo-utn.png y quita los signos de comentario de la línea de abajo -->
 <!-- <img src="img/logo-utn.png" width="110" alt="Universidad Tecnológica de Nezahualcóyotl"> -->
 
-Elaborado por **Luis Angel Perez Gonzalez** como parte de su servicio social en la
+Elaborado por [**Luis Ángel Pérez González**](https://github.com/luisperezglz) como parte de su servicio social en la
 División Académica de Telemática de la **Universidad Tecnológica de Nezahualcóyotl**.
 
 Puedes usar y adaptar este material libremente para dar clases.

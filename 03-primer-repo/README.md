@@ -121,6 +121,10 @@ git push
 > Tu `mi-primer-repo` debe ser **público**, tener `README.md` y al menos 3 commits.
 > Vas a seguir usando este mismo repo en todos los módulos: no lo borres.
 
+> [!TIP]
+> **¿Ya quedó bien?** Haz `git push` y comenta `/revisar` en tu Issue de avance.
+> Si todavía no lo tienes, ábrelo aquí: [📈 Revisar mi avance](https://github.com/git-master-utn/aprende-github/issues/new?template=revisar-avance.md&title=Revisar+mi+avance).
+
 ## ✅ Antes de continuar
 
 - [ ] Puedo explicar las tres zonas con mis palabras

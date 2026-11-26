@@ -152,6 +152,10 @@ ssh -T git@github.com
 > Usa en `user.email` **el mismo correo de tu cuenta de GitHub**. Así GitHub liga
 > tus commits a tu perfil, y eso es lo primero que revisa el reto final.
 
+> [!TIP]
+> **¿Ya quedó bien?** Haz `git push` y comenta `/revisar` en tu Issue de avance.
+> Si todavía no lo tienes, ábrelo aquí: [📈 Revisar mi avance](https://github.com/git-master-utn/aprende-github/issues/new?template=revisar-avance.md&title=Revisar+mi+avance).
+
 ## ✅ Antes de continuar
 
 - [ ] `git --version` muestra un número de versión

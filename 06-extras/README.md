@@ -99,6 +99,10 @@ de presentación.
 > [!IMPORTANT]
 > Tu `mi-primer-repo` debe tener un `.gitignore` con `*.log` y al menos un Issue.
 
+> [!TIP]
+> **¿Ya quedó bien?** Haz `git push` y comenta `/revisar` en tu Issue de avance.
+> Si todavía no lo tienes, ábrelo aquí: [📈 Revisar mi avance](https://github.com/git-master-utn/aprende-github/issues/new?template=revisar-avance.md&title=Revisar+mi+avance).
+
 ## ✅ Antes de continuar
 
 - [ ] Mi repo tiene un `.gitignore`

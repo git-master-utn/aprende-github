@@ -153,6 +153,10 @@ Trabaja con un compañero:
 > [!IMPORTANT]
 > La rama `main` de tu `mi-primer-repo` debe quedar **protegida**.
 
+> [!TIP]
+> **¿Ya quedó bien?** Haz `git push` y comenta `/revisar` en tu Issue de avance.
+> Si todavía no lo tienes, ábrelo aquí: [📈 Revisar mi avance](https://github.com/git-master-utn/aprende-github/issues/new?template=revisar-avance.md&title=Revisar+mi+avance).
+
 ## ✅ Antes de continuar
 
 - [ ] Sé la diferencia entre un repo público y uno privado

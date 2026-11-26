@@ -1,0 +1,35 @@
+name: Revisar mi avance
+
+# Se activa cuando un alumno abre el Issue "Revisar mi avance" o comenta /revisar en él.
+# Solo lee datos públicos del repositorio de práctica del alumno y contesta en el Issue.
+on:
+  issues:
+    types: [opened, reopened]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  avance:
+    if: >-
+      contains(github.event.issue.title, 'Revisar mi avance') &&
+      !github.event.issue.pull_request &&
+      (github.event_name == 'issues' ||
+       (startsWith(github.event.comment.body, '/revisar') &&
+        github.event.comment.user.login == github.event.issue.user.login))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Revisar el avance del alumno
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          AUTOR: ${{ github.event.issue.user.login }}
+        run: python3 .github/scripts/verificar_reto.py avance

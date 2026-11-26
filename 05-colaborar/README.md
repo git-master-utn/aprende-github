@@ -135,6 +135,10 @@ Practica en parejas. Cada quien usa **su propia cuenta** (revisa el avatar).
 > En tu `mi-primer-repo` debe quedar **aceptado** al menos un Pull Request
 > hecho por un compañero.
 
+> [!TIP]
+> **¿Ya quedó bien?** Haz `git push` y comenta `/revisar` en tu Issue de avance.
+> Si todavía no lo tienes, ábrelo aquí: [📈 Revisar mi avance](https://github.com/git-master-utn/aprende-github/issues/new?template=revisar-avance.md&title=Revisar+mi+avance).
+
 ## ✅ Antes de continuar
 
 - [ ] Entiendo la diferencia entre fork y clone

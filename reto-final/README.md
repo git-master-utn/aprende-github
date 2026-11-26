@@ -8,6 +8,10 @@ se acepta si tu repositorio de práctica tiene la evidencia de cada módulo.
 > módulos 02 al 08. Un robot revisa tu repositorio de práctica automáticamente:
 > si te saltaste algo, te lo va a decir.
 
+> [!TIP]
+> **Antes de mandar tu Pull Request**, revisa que vayas en 10 / 10 con tu Issue
+> [📈 Revisar mi avance](https://github.com/git-master-utn/aprende-github/issues/new?template=revisar-avance.md&title=Revisar+mi+avance).
+
 ## ✅ Requisitos antes de empezar
 
 Todo se revisa en **tu** repositorio `mi-primer-repo` (el que creaste en el

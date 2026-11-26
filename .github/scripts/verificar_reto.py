@@ -7,6 +7,7 @@ las evidencias que dejan los ejercicios de los módulos 02 a 08.
 Modos:
   pr     Revisa el Pull Request del reto final y deja un comentario con el resultado.
   todos  Revisa a todos los alumnos de reto-final/alumnos.md y genera un reporte.
+  avance Contesta el Issue "Revisar mi avance" con lo que lleva el alumno.
 
 Solo lee datos públicos con la API de GitHub. No ejecuta código de los alumnos.
 """
@@ -418,6 +419,50 @@ def modo_todos():
     print(reporte)
 
 
+MARCA_AVANCE = "<!-- avance-curso -->"
+TITULO_AVANCE = "Revisar mi avance"
+
+
+def modo_avance():
+    """Revisa el avance de quien abrió el Issue "Revisar mi avance" y le contesta ahí mismo."""
+    repo = os.environ["REPO"]
+    numero = os.environ["ISSUE_NUMBER"]
+    autor = os.environ["AUTOR"]
+    res, info = revisar(autor)
+    nota = calificacion(res)
+    llenos = round(nota / TOTAL * 10)
+    barra = "🟩" * llenos + "⬜" * (10 - llenos)
+
+    partes = [MARCA_AVANCE, f"## 📈 Tu avance en el curso, @{autor}", "",
+              f"**Calificación hasta ahora: {fmt(nota)} / {fmt(TOTAL)}**", "", barra, ""]
+    pendientes = sorted((r for r in res if not r[2]), key=lambda r: r[0])
+    if info is None:  # sin repo: el primer paso es crearlo
+        pendientes.sort(key=lambda r: "No existe" not in r[3])
+    if not pendientes:
+        partes += ["🎉 **¡Tienes todo completo!** Ya puedes hacer el "
+                   f"[reto final]({URL_CURSO}/tree/main/reto-final) para aparecer en la lista de alumnos.", ""]
+    else:
+        mod, desc, _, det, _ = pendientes[0]
+        partes += [f"👉 **Tu siguiente paso:** módulo [{mod}]({URL_CURSO}/tree/main/{MODULOS[mod]}) · {desc}"
+                   + (f" ({det})" if det else ""), ""]
+    if info is None:
+        partes += [f"💡 No encontré tu repo `{autor}/{REPO_PRACTICA}`. Créalo **público** en tu cuenta, "
+                   "con ese nombre exacto, como dice el curso.", ""]
+    partes += [f"### Tu repositorio de práctica: [{autor}/{REPO_PRACTICA}](https://github.com/{autor}/{REPO_PRACTICA})",
+               "", tabla_revisiones(res), "",
+               "🔁 **Para volver a revisar**, termina tu siguiente ejercicio, haz `git push` y escribe aquí "
+               "un comentario que diga `/revisar`.",
+               "", "<sub>Este Issue solo revisa tu avance. Para entregar, haz el reto final.</sub>"]
+    cuerpo = "\n".join(partes)
+    api("POST", f"/repos/{repo}/issues/{numero}/comments", {"body": cuerpo})
+
+    resumen = os.environ.get("GITHUB_STEP_SUMMARY")
+    if resumen:
+        with open(resumen, "a", encoding="utf-8") as f:
+            f.write(cuerpo.replace(MARCA_AVANCE, "") + "\n")
+    print(cuerpo)
+
+
 if __name__ == "__main__":
     modo = sys.argv[1] if len(sys.argv) > 1 else "todos"
-    modo_pr() if modo == "pr" else modo_todos()
+    {"pr": modo_pr, "avance": modo_avance}.get(modo, modo_todos)()
